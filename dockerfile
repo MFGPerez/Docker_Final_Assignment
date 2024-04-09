@@ -1,0 +1,28 @@
+
+# Use Node.js image as base
+FROM node:14-alpine
+
+# define what the working directory inside the container will be
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./p
+
+# Install any dependencies
+RUN npm install
+
+# Copy the rest of the code
+COPY . .
+
+# Expose port 8080 
+EXPOSE 8080
+
+# Command to run the application
+CMD ["node", "app.js"]
+
+
+
+
+
+
+
