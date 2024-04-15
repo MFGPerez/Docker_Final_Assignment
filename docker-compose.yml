@@ -5,6 +5,14 @@ services:
     build: .
     ports:
       - "8080:8080"
+    depends_on:
+      - mariadb
+    environment:
+      DB_HOST: mariadb
+      DB_ROOT_PASSWORD: PasswordR00T
+      DB_DATABASE: book_store
+      DB_USERNAME: Marcel_G
+      DB_PASSWORD: Pa$$w00rd
 
   nginx:
     image: nginx:latest
@@ -14,3 +22,15 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - nodejs-app
+
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: PasswordR00T
+      MYSQL_DATABASE: book_store
+      MYSQL_USER: Marcel_G
+      MYSQL_PASSWORD: Pa$$w00rd
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d  # Mount initialization scripts
+
