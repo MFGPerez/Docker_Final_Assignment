@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install any dependencies
-RUN npm install
+RUN npm install   
 
 # Install MySQL client
 RUN apk add --no-cache mariadb-client

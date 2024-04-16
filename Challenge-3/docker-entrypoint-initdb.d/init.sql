@@ -1,11 +1,11 @@
 CREATE DATABASE IF NOT EXISTS book_store;
 
-USE book_store;
+USE book_store; 
 
 
 CREATE TABLE books (
     id INT  PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,  
     author VARCHAR(255) NOT NULL
 );
 

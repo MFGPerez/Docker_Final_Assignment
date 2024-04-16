@@ -11,7 +11,7 @@ services:
       DB_HOST: mariadb
       DB_ROOT_PASSWORD: PasswordR00T
       DB_DATABASE: book_store
-      DB_USERNAME: Marcel_G
+      DB_USERNAME: Marcel_G  
       DB_PASSWORD: Pa$$w00rd
 
   nginx:
