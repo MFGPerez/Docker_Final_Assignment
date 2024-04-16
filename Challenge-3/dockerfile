@@ -11,8 +11,7 @@ COPY package*.json ./
 # Install any dependencies
 RUN npm install   
 
-# Install MySQL client
-RUN apk add --no-cache mariadb-client
+
 
 # Install wait-for
 RUN npm install wait-for

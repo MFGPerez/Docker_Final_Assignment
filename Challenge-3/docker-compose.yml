@@ -40,6 +40,5 @@ services:
       MYSQL_PASSWORD: Pa$$w00rd
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d # use the init.sql file on start up from the dir 
-    ports: 
-    - 3036:3036
+  
    
