@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 });
 
 // Connect to the database
-connection.connect(err => {
+connection.connect(function(err) {
   if (err) {
     console.error('Error connecting to database:', err);
     return;
@@ -21,9 +21,9 @@ connection.connect(err => {
 });
 
 // Route to get all books from the database
-app.get('/api/books', (req, res) => {
+app.get('/api/books', function(req, res) {
   const query = 'SELECT * FROM books';
-  connection.query(query, (err, results) => {
+  connection.query(query, function(err, results) {
     if (err) {
       console.error('Error querying database:', err);
       res.status(500).send('Internal Server Error');
@@ -34,10 +34,10 @@ app.get('/api/books', (req, res) => {
 });
 
 // Route to get a single book by ID from the database
-app.get('/api/books/:id', (req, res) => {
+app.get('/api/books/:id', function(req, res) {
   const id = req.params.id;
   const query = 'SELECT * FROM books WHERE id = ?';
-  connection.query(query, [id], (err, results) => {
+  connection.query(query, [id], function(err, results) {
     if (err) {
       console.error('Error querying database:', err);
       res.status(500).send('Internal Server Error');
@@ -52,6 +52,6 @@ app.get('/api/books/:id', (req, res) => {
 });
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen(PORT, function() {
   console.log(`Server is running on port ${PORT}`);
 });

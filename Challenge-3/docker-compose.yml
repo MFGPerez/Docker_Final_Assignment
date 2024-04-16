@@ -5,7 +5,6 @@ services:
     build: .
     ports:
       - "8080:8080"
-  
     depends_on:
       - mariadb
     environment:
@@ -22,17 +21,25 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - nodejs-app
+      - wait-for-nodejs
+    command: ["./wait-for", "nodejs-app:8080", "--", "nginx", "-g", "daemon off;"]
+
+  wait-for-nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile.wait-for-nodejs
       
 
   mariadb:
     image: mariadb:latest
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: PasswordR00T
       MYSQL_DATABASE: book_store
       MYSQL_USER: Marcel_G
       MYSQL_PASSWORD: Pa$$w00rd
-      
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports: 
+    - 3036:3036
    
