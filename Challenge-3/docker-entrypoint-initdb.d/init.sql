@@ -1,8 +1,10 @@
+CREATE DATABASE IF NOT EXISTS book_store;
 
+USE book_store;
 
 
 CREATE TABLE books (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT  PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL
 );

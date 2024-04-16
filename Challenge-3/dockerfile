@@ -6,16 +6,23 @@ FROM node:14-alpine
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./p
+COPY package*.json ./
 
 # Install any dependencies
 RUN npm install
+
+# Install MySQL client
+RUN apk add --no-cache mariadb-client
+
+
 
 # Copy the rest of the code
 COPY . .
 
 # Expose port 8080 
 EXPOSE 8080
+
+
 
 # Command to run the application
 CMD ["node", "app.js"]
