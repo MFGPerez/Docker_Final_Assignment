@@ -7,3 +7,4 @@ COPY package*.json ./
 RUN npm install wait-for
 
 CMD ["./node_modules/.bin/wait-for"]    
+ 

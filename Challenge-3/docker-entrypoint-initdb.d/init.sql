@@ -9,7 +9,7 @@ CREATE TABLE books (
     id INT  PRIMARY KEY,
     title VARCHAR(255) NOT NULL,  
     author VARCHAR(255) NOT NULL
-);
+);  
 
 -- seed data into the DB 
 INSERT INTO books (id, title, author) VALUES

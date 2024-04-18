@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 
 const app = express();
-
+  
 // Database configuration
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,

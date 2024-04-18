@@ -35,7 +35,7 @@ DB_ROOT_PASSWORD: PasswordR00T
 DB_DATABASE: book_store
 DB_USERNAME: Marcel_G  
  DB_PASSWORD: Pa$$w00rd
-
+ 
 The next section was altering the nginx section we had, this gave me the most trouble and it came because the nginx server container was running and connecting to the node.js app before the node.js app was fully ready to accept connections, this resulted in errors.
 To fix this I had to add somthing caled wait for.
 
