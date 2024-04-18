@@ -8,10 +8,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-
-# Install wait-for
-RUN npm install wait-for
-
 # Copy the rest of the code
 COPY . .
 
