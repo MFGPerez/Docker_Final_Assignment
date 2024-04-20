@@ -48,7 +48,7 @@ app.get('/api/books/:id', function(req, res) {
       res.status(404).send('Book not found');
       return;
     }
-    res.json(results[0]);
+    res.json(results[0]); 
   });
 });
 
