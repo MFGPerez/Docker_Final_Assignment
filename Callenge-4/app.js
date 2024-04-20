@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const os = require('os');
 
 const app = express();
   
@@ -49,6 +50,12 @@ app.get('/api/books/:id', function(req, res) {
     }
     res.json(results[0]);
   });
+});
+
+// Route to record the hostname
+app.get('/api/stats', (req, res) => {
+  const hostname = os.hostname();
+  res.json({ hostname });
 });
 
 // use port 80808 

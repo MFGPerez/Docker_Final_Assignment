@@ -100,3 +100,17 @@ TO RUN THIS APPLICATION SEE THE INSTRUCTIONS BELOW.
 8. To stop the containers run the following cmd -> docker stop $(docker ps -a -q)
 
    END. 
+
+
+
+Challenge #4 
+
+To scale up the current application we can run the following command: docker-compose up --scale nodejs-app=3
+This will tell Docker compose to scale up our app to 3 instances, which will run concurrently. 
+
+The benefits from this are the following 
+With more instances handling requests the performance of the app will increase 
+If one instance fails the whole app will not shut down since there are multiple instances, we would just use another instance. 
+The stability can increase since we are distributing the load among multiple instances, like a pulley if we add more then the weight will be evenly distributed making it easter to pull heavy objects. 
+We can scale it up by adding more instances without having to mess around with the core. 
+Unfortunately I cant get the stats to load on my web page. 
