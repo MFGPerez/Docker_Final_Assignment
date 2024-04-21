@@ -13,7 +13,7 @@ services:
       DB_DATABASE: book_store
       DB_USERNAME: Marcel_G  
       DB_PASSWORD: Pa$$w00rd
-    scale: 3
+
 
   nginx:
     image: nginx:latest
